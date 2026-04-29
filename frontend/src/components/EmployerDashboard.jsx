@@ -180,7 +180,7 @@ const EmployerDashboard = () => {
 
                       <div style={styles.appFooter}>
                         <a
-                          href={`http://localhost:5000/${app.cvPath.replace(/\\/g, "/")}`}
+                          href={`${import.meta.env.VITE_API_URL.replace("/api", "")}/${app.cvPath.replace(/\\/g, "/")}`}
                           target="_blank"
                           rel="noreferrer"
                           style={styles.cvLink}
