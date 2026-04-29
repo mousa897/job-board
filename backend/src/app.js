@@ -13,12 +13,24 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://job-board-cyan.vercel.app",
-      "https://job-board-qsbaxxmkx-mousas-projects-1b0df128.vercel.app",
-      process.env.FRONTEND_URL,
-    ].filter(Boolean),
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "https://job-board-cyan.vercel.app",
+        process.env.FRONTEND_URL,
+      ];
+
+      // Allow any vercel.app preview URL
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app")
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
