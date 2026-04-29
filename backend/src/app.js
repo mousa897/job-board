@@ -16,6 +16,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://job-board-cyan.vercel.app",
+      "https://job-board-qsbaxxmkx-mousas-projects-1b0df128.vercel.app",
       process.env.FRONTEND_URL,
     ].filter(Boolean),
     credentials: true,
