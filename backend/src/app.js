@@ -13,7 +13,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", process.env.FRONTEND_URL],
+    origin: [
+      "http://localhost:5173",
+      "https://job-board-cyan.vercel.app",
+      process.env.FRONTEND_URL,
+    ].filter(Boolean),
     credentials: true,
   }),
 );
