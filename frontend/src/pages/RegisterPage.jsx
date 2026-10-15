@@ -142,6 +142,8 @@ const styles = {
     fontSize: "1rem",
     outline: "none",
     boxSizing: "border-box",
+    backgroundColor: "white",
+    WebkitBoxShadow: "0 0 0px 1000px white inset",
   },
   button: {
     width: "100%",
